@@ -19,7 +19,7 @@ export default function Navbar() {
 
     return (
 
-        <div className="sticky top-0 z-50 bg-white/80 backdrop-blur shadow-sm">
+        <div className="sticky top-0 z-50 bg-white shadow-sm">
             <div className="navbar max-w-[1440px] mx-auto h-[93px] px-6 lg:px-12">
 
                 {/* Logo */}
