@@ -21,6 +21,7 @@ export default function Navbar() {
 
         <div className="sticky top-0 z-50 bg-white/80 backdrop-blur shadow-sm">
             <div className="navbar max-w-[1440px] mx-auto h-[93px] px-6 lg:px-12">
+
                 {/* Logo */}
                 <div className="navbar-start">
                     <Link href="/">
@@ -31,13 +32,13 @@ export default function Navbar() {
                 {/* Menu */}
                 <div className="navbar-center hidden  md:flex">
                     <ul className="menu menu-horizontal px-1 gap-8 text-sm font-medium text-black">
-                        {navLinks.map((link) => (
-                            <li key={link.href}>
-                                <Link href={link.href} className="hover:text-white hover:bg-amber-800  transition-colors duration-300">
-                                    {link.name}
-                                </Link>
-                            </li>
-                        ))}
+
+                        <li ><Link href="/">Home</Link></li>
+                        <li><Link href="/discover">Discover</Link></li>
+                        <li><Link href="/blog">Blog</Link></li>
+                        <li><Link href="/about">About Us</Link></li>
+                        <li><Link href="/contact">Contact</Link></li>
+
 
                     </ul>
 
@@ -87,6 +88,33 @@ export default function Navbar() {
                             <li><a>Logout</a></li>
                         </ul>
                     </div>
+                </div>
+                {/* Hamburger Menue */}
+                <div className=" md:hidden ">
+                    <button
+                        className="btn btn-ghost btn-circle"
+                        onClick={() => setIsOpen(!isOpen)}
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+
+                    </button>
+                    {isOpen && (
+                        <div className="md:hidden bg-white shadow-md">
+                            <ul className="menu p-4 gap-2 text-base font-medium text-black">
+                                {navLinks.map((link) => (
+                                    <li key={link.href}>
+                                        <Link href={link.href} onClick={() => setIsOpen(false)}>
+                                            {link.name}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    )}
                 </div>
             </div>
         </div >
